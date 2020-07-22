@@ -34,3 +34,6 @@ build/
 
 ### serviceAccountKey ###
 src/main/resources/db/serviceAccountKey.json
+
+### mvnw
+mvnw
