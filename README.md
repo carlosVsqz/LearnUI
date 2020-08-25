@@ -47,5 +47,3 @@ To your account settings.
 ```
 
 Open your browser with address: [localhost:8080](localhost:8080)  
-
-

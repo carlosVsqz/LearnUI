@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "authentication.firebase.databaseUrl",
+      "type": "java.lang.String",
+      "description": "Description for authentication.firebase.databaseUrl."
+    },
+    {
+      "name": "authentication.firebase.configObject",
+      "type": "java.lang.String",
+      "description": "Description for authentication.firebase.configObject."
+    },
+    {
+      "name": "authentication.jwt.privateKey",
+      "type": "java.lang.String",
+      "description": "Description for authentication.jwt.privateKey."
+    },
+    {
+      "name": "authentication.jwt.publicKey",
+      "type": "java.lang.String",
+      "description": "Description for authentication.jwt.publicKey."
+    }
+  ] }
