@@ -21,9 +21,9 @@ public class FirebaseTokenGranter extends AbstractTokenGranter {
     private static final String GRANT_TYPE = "firebase";
     private static final String FIREBASE_TOKEN_ID = "firebase_token_id";
 
-    private FirebaseService firebaseService;
+    private final FirebaseService firebaseService;
 
-    private SlpAuthenticationManager authenticationManager;
+    private final SlpAuthenticationManager authenticationManager;
 
     public FirebaseTokenGranter(AuthorizationServerTokenServices tokenServices,
                                 ClientDetailsService clientDetailsService,

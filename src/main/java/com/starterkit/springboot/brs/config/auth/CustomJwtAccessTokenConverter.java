@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 
 public class CustomJwtAccessTokenConverter extends JwtAccessTokenConverter {
 
-    private UserService userService;
+    private final UserService userService;
 
     CustomJwtAccessTokenConverter(UserService userService) {
         this.userService = userService;

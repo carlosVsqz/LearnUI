@@ -16,8 +16,8 @@ import com.google.gson.JsonSerializer;
 
 public class LocalTimeAdapter implements JsonDeserializer<LocalTime>, JsonSerializer<LocalTime> {
 
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-    private JsonParser jsonParser = new JsonParser();
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+    private final JsonParser jsonParser = new JsonParser();
 
     @Override
     public LocalTime deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {

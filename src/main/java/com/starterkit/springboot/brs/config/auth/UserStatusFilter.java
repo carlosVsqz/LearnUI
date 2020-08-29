@@ -24,7 +24,7 @@ import com.google.gson.Gson;
 
 public class UserStatusFilter extends OncePerRequestFilter {
 
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
@@ -44,16 +44,16 @@ public class UserStatusFilter extends OncePerRequestFilter {
                 }
             }
         } catch (InactiveUserException | InvalidUserException ex) {
-            prepareErrorResponse(ex, HttpStatus.FORBIDDEN, httpServletResponse);
+            prepareErrorResponse(ex, httpServletResponse);
             return;
         }
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 
-    private void prepareErrorResponse(Exception ex, HttpStatus status, HttpServletResponse response) throws IOException {
+    private void prepareErrorResponse(Exception ex, HttpServletResponse response) throws IOException {
         response.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
-        response.setStatus(status.value());
+        response.setStatus(HttpStatus.FORBIDDEN.value());
 
         try (OutputStream os = response.getOutputStream()) {
             MainExceptionHandler.Error error = new MainExceptionHandler.Error()

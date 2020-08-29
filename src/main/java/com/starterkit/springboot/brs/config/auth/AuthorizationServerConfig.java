@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import com.starterkit.springboot.brs.config.auth.firebase.FirebaseTokenGranter;
 import com.starterkit.springboot.brs.services.UserService;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -66,10 +67,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public JwtAccessTokenConverter accessTokenConverter() {
 
         if (StringUtils.isEmpty(jwtConfig.getPrivateKey()) || StringUtils.isEmpty(jwtConfig.getPublicKey())) {
+            //todo all from null parent jwt-config
             return null;
         }
 
         JwtAccessTokenConverter accessTokenConverter = new CustomJwtAccessTokenConverter(userService);
+
         byte[] privateKey = Base64Utils.decodeFromString(jwtConfig.getPrivateKey());
         byte[] publicKey = Base64Utils.decodeFromString(jwtConfig.getPublicKey());
 
@@ -105,7 +108,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         this.jwtConfig = jwtConfig;
     }
 
-    @Autowired
+     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
